@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="bilipan的网络日志">
 <meta property="og:description" content="sourcetree 是一款 git 可视化的管理工具。因为工作的原因，我开始使用 sourcetree 来管理我的 git。经过几天的磨合，它除了能让你免去记忆各种命令之外，最大的好处就是它提供了一套可行的项目开发流程。通过内建的流程，你能更好地理解 git 的真谛，从而提高开发效率，解决团队合作开发的问题。 新功能来了，怎么做？在多人项目开发中，你会时不时地收到新的需求，新的功能。如果按照个人">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-20T16:23:59.000Z">
+<meta property="og:updated_time" content="2018-07-21T02:28:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sourcetree实践笔记">
 <meta name="twitter:description" content="sourcetree 是一款 git 可视化的管理工具。因为工作的原因，我开始使用 sourcetree 来管理我的 git。经过几天的磨合，它除了能让你免去记忆各种命令之外，最大的好处就是它提供了一套可行的项目开发流程。通过内建的流程，你能更好地理解 git 的真谛，从而提高开发效率，解决团队合作开发的问题。 新功能来了，怎么做？在多人项目开发中，你会时不时地收到新的需求，新的功能。如果按照个人">
@@ -92,7 +92,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能来了，怎么做？"><span class="toc-number">1.</span> <span class="toc-text">新功能来了，怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果是-bug-呢？"><span class="toc-number">2.</span> <span class="toc-text">如果是 bug 呢？</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能来了，怎么做？"><span class="toc-number">1.</span> <span class="toc-text">新功能来了，怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果是-bug-呢？"><span class="toc-number">2.</span> <span class="toc-text">如果是 bug 呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打标签（git-tag）"><span class="toc-number">3.</span> <span class="toc-text">打标签（git tag）</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -128,7 +128,8 @@
   <div class="content" itemprop="articleBody">
     <p>sourcetree 是一款 git 可视化的管理工具。因为工作的原因，我开始使用 sourcetree 来管理我的 git。经过几天的磨合，它除了能让你免去记忆各种命令之外，最大的好处就是它提供了一套可行的项目开发流程。通过内建的流程，你能更好地理解 git 的真谛，从而提高开发效率，解决团队合作开发的问题。</p>
 <h2 id="新功能来了，怎么做？"><a href="#新功能来了，怎么做？" class="headerlink" title="新功能来了，怎么做？"></a>新功能来了，怎么做？</h2><p>在多人项目开发中，你会时不时地收到新的需求，新的功能。如果按照个人那一套模式，直接在唯一的那套代码上添加新代码，肯定会出问题的。这时候你可以通过新建 feature 本地分支（feature 分支实际是从 develop 分支分离出来的），然后在上面开发，开发完后提交再点击完成功能即可。当然这时候 feature 上的代码并没有推到远程 develop 分支上，更没有推到 master 分支上，而只是和本地的 develop 分支合并而已。如果还有新的功能，就再开一个 feature 分支，跟前面介绍的一样。当所有的功能点开发完后，这时候所有的代码都已经合并到本地的 develop 分支上，然后再推送到远程的 develop 分支上即可。</p>
-<h2 id="如果是-bug-呢？"><a href="#如果是-bug-呢？" class="headerlink" title="如果是 bug 呢？"></a>如果是 bug 呢？</h2><p>作为一个开发者，没有十全十美的代码，这点认识还是有的。可是 bug 来了，怎么办？不改，留到后面，先做完当前的任务再说？还是马上解决？bug 也可以像 feature 一样开一个临时的分支来修复，修复之后，再合并回 develop 分支，删除掉现在的 bug 分支即可。可是手头上的功能还没完成，代码还没提交，这让我怎么操作？sourcetree 提供了一种快捷操作（当然这也是 git 本身的特性），可以临时保存你的为提交的代码，清空你的工作区，这样你就可以全心投入 bug 的处理过程，等到处理完后。可以再恢复原先的代码状态，继续之前的工作任务。</p>
+<h2 id="如果是-bug-呢？"><a href="#如果是-bug-呢？" class="headerlink" title="如果是 bug 呢？"></a>如果是 bug 呢？</h2><p>作为一个开发者，没有十全十美的代码，这点认识还是有的。可是 bug 来了，怎么办？不改，留到后面，先做完当前的任务再说？还是马上解决？bug 也可以像 feature 一样开一个临时的分支来修复，修复之后，再合并回 develop 分支，删除掉现在的 bug 分支即可。可是手头上的功能还没完成，代码还没提交，这让我怎么操作？sourcetree 提供了一种快捷操作（当然这也是 git 本身的特性），可以临时保存你的未提交的代码，清空你的工作区，这样你就可以全心投入 bug 的处理过程，等到处理完后。可以再恢复原先的代码状态，继续之前的工作任务。</p>
+<h2 id="打标签（git-tag）"><a href="#打标签（git-tag）" class="headerlink" title="打标签（git tag）"></a>打标签（git tag）</h2><p>标签说白了就是 commit 的别名，但是这有什么用呢？如果老板跟你说，请把上周上线的版本打包发给我，你这时候肯定懵逼了，因为你还得回去翻记录，看看哪一个是上周上线的 commit。但是如果你给那一次的 commit 打了标签 tag，叫 v1.0.2，那么你就能快速找到并打包发给你老板。打标签应该打在版本的最后一次 commit，被打就意味着代码到了一个小的节点甚至里程碑。</p>
 
   </div>
 </article>
@@ -151,7 +152,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能来了，怎么做？"><span class="toc-number">1.</span> <span class="toc-text">新功能来了，怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果是-bug-呢？"><span class="toc-number">2.</span> <span class="toc-text">如果是 bug 呢？</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#新功能来了，怎么做？"><span class="toc-number">1.</span> <span class="toc-text">新功能来了，怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如果是-bug-呢？"><span class="toc-number">2.</span> <span class="toc-text">如果是 bug 呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打标签（git-tag）"><span class="toc-number">3.</span> <span class="toc-text">打标签（git tag）</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
