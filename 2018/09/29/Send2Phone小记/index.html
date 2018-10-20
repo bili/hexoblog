@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/80574120-8D57-4D4D-ADF8-0A9E137ACACA.png">
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/28454AC8-2678-4361-955F-6A8573A39E78.png">
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/5F9EBF77-6899-446A-BB36-1441CAC5E7FE.png">
-<meta property="og:updated_time" content="2018-10-19T14:02:11.662Z">
+<meta property="og:updated_time" content="2018-10-20T03:17:21.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Send2Phone小记">
 <meta name="twitter:description" content="Send2Phone，“人”如其名，就是把电脑上正在访问的网页地址一键推送到手机上。说实话这个功能早已经烂大街了，不过作为一个合格的程序员，造轮子是最爱干的事。 技术原理也很简单，就是利用了firefox上的油猴插件和手机端的  IFTTT 的 webhook 功能。 说到这，估计大家一下就明白了。 效果是这样的：每个访问的页面的左下角都躲着一个按钮，点击一下，就推送到手机了，实现自己的 hand">
@@ -345,16 +345,16 @@
 <p>说到这，估计大家一下就明白了。</p>
 <p>效果是这样的：每个访问的页面的左下角都躲着一个按钮，点击一下，就推送到手机了，实现自己的 hand off 功能。</p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/D882928A-C7E8-45D3-8FD9-766B6C809583.png" alt=""></p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="配置IFTTT"><a href="#配置IFTTT" class="headerlink" title="配置IFTTT"></a>配置IFTTT</h3><p><img src="/hexoblog/2018/09/29/Send2Phone小记/835A5247-78CE-4BD9-90FD-61AAD4806C47.png" alt=""></p>
+<h1 id="配置IFTTT"><a href="#配置IFTTT" class="headerlink" title="配置IFTTT"></a>配置IFTTT</h1><p><img src="/hexoblog/2018/09/29/Send2Phone小记/835A5247-78CE-4BD9-90FD-61AAD4806C47.png" alt=""></p>
 <p>访问 <a href="https://ifttt.com/maker_webhooks，进到触发器的创建页面。" target="_blank" rel="noopener">https://ifttt.com/maker_webhooks，进到触发器的创建页面。</a></p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/35D21207-D4EE-4590-9024-C6F92D2DA109.png" alt=""></p>
 <p>这里面只要设置一下【事件名】就可以了，因为我要传的是动态的变量，所以这里的参数可以不用写。然后你可以直接把这个请求地址粘贴到浏览器访问一下，如果手机有收到推送，说明ok。<br><a id="more"></a></p>
-<h3 id="油猴编码"><a href="#油猴编码" class="headerlink" title="油猴编码"></a>油猴编码</h3><p><img src="/hexoblog/2018/09/29/Send2Phone小记/3B01B493-0D89-4884-A9EC-0615EE681724.png" alt=""></p>
+<h1 id="油猴编码"><a href="#油猴编码" class="headerlink" title="油猴编码"></a>油猴编码</h1><p><img src="/hexoblog/2018/09/29/Send2Phone小记/3B01B493-0D89-4884-A9EC-0615EE681724.png" alt=""></p>
 <p>我就是这么坦白，直接上代码。代码略丑，请无视。</p>
 <p>大意就是通过油猴脚本获取当前的网页地址，然后把地址放进刚才IFTTT创建的请求参数里， 最后请求一下就完事啦。这里要特别说一下，IFTTT目前只提供传递三个参数，而且是固定命名（value1，value2 和 value3），所以把网页地址放到value1即可。</p>
 <p>还差一步，要不然随便访问一个页面，都会推送到手机。 怎么办，简单加个按钮呗，这个对于前端来说太小菜了。多亏了油猴，我们可以操作在页面dom，加个事件，欧了。当然啦，别忘记设置插件的使用范围哦，我这里是粗暴的对所有页面都有效。</p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/9EE7191F-16C0-47A5-B383-9DB42C8A5979.png" alt=""></p>
-<h3 id="回到-IFTTT"><a href="#回到-IFTTT" class="headerlink" title="回到 IFTTT"></a>回到 IFTTT</h3><p>创建一个if-then服务。if 选 webhooks 服务，then 选 rich notification 服务(因为我想直接点击通知就可以直接访问网站，所以才用的富通知服务)。</p>
+<h1 id="回到-IFTTT"><a href="#回到-IFTTT" class="headerlink" title="回到 IFTTT"></a>回到 IFTTT</h1><p>创建一个if-then服务。if 选 webhooks 服务，then 选 rich notification 服务(因为我想直接点击通知就可以直接访问网站，所以才用的富通知服务)。</p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/5D05BCA4-9498-4FB8-85BC-BC9B448A859E.png" alt=""></p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/80574120-8D57-4D4D-ADF8-0A9E137ACACA.png" alt=""></p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/28454AC8-2678-4361-955F-6A8573A39E78.png" alt=""></p>
@@ -523,7 +523,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置IFTTT"><span class="nav-number">1.1.</span> <span class="nav-text">配置IFTTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#油猴编码"><span class="nav-number">1.2.</span> <span class="nav-text">油猴编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回到-IFTTT"><span class="nav-number">1.3.</span> <span class="nav-text">回到 IFTTT</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置IFTTT"><span class="nav-number">1.</span> <span class="nav-text">配置IFTTT</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#油猴编码"><span class="nav-number">2.</span> <span class="nav-text">油猴编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回到-IFTTT"><span class="nav-number">3.</span> <span class="nav-text">回到 IFTTT</span></a></li></ol></div>
             
 
           </div>
