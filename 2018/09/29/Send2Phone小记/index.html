@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/80574120-8D57-4D4D-ADF8-0A9E137ACACA.png">
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/28454AC8-2678-4361-955F-6A8573A39E78.png">
 <meta property="og:image" content="https://bili.github.io/hexoblog/2018/09/29/Send2Phone小记/5F9EBF77-6899-446A-BB36-1441CAC5E7FE.png">
-<meta property="og:updated_time" content="2018-09-29T16:13:41.800Z">
+<meta property="og:updated_time" content="2018-10-19T14:02:11.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Send2Phone小记">
 <meta name="twitter:description" content="Send2Phone，“人”如其名，就是把电脑上正在访问的网页地址一键推送到手机上。说实话这个功能早已经烂大街了，不过作为一个合格的程序员，造轮子是最爱干的事。 技术原理也很简单，就是利用了firefox上的油猴插件和手机端的  IFTTT 的 webhook 功能。 说到这，估计大家一下就明白了。 效果是这样的：每个访问的页面的左下角都躲着一个按钮，点击一下，就推送到手机了，实现自己的 hand">
@@ -348,7 +348,7 @@
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="配置IFTTT"><a href="#配置IFTTT" class="headerlink" title="配置IFTTT"></a>配置IFTTT</h3><p><img src="/hexoblog/2018/09/29/Send2Phone小记/835A5247-78CE-4BD9-90FD-61AAD4806C47.png" alt=""></p>
 <p>访问 <a href="https://ifttt.com/maker_webhooks，进到触发器的创建页面。" target="_blank" rel="noopener">https://ifttt.com/maker_webhooks，进到触发器的创建页面。</a></p>
 <p><img src="/hexoblog/2018/09/29/Send2Phone小记/35D21207-D4EE-4590-9024-C6F92D2DA109.png" alt=""></p>
-<p>这里面只要设置一下【事件名】就可以了，因为我要传的是动态的变量，所以这里的参数可以不用写。然后你可以直接把这个请求地址粘贴到浏览器访问一下，如果手机有收到推送，说明ok。</p>
+<p>这里面只要设置一下【事件名】就可以了，因为我要传的是动态的变量，所以这里的参数可以不用写。然后你可以直接把这个请求地址粘贴到浏览器访问一下，如果手机有收到推送，说明ok。<br><a id="more"></a></p>
 <h3 id="油猴编码"><a href="#油猴编码" class="headerlink" title="油猴编码"></a>油猴编码</h3><p><img src="/hexoblog/2018/09/29/Send2Phone小记/3B01B493-0D89-4884-A9EC-0615EE681724.png" alt=""></p>
 <p>我就是这么坦白，直接上代码。代码略丑，请无视。</p>
 <p>大意就是通过油猴脚本获取当前的网页地址，然后把地址放进刚才IFTTT创建的请求参数里， 最后请求一下就完事啦。这里要特别说一下，IFTTT目前只提供传递三个参数，而且是固定命名（value1，value2 和 value3），所以把网页地址放到value1即可。</p>
