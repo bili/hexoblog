@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://bili.github.io/hexoblog/hexoblog/2019/02/15/Vue2.x源码学习（1）视图和数据对象是如何关联的？/">
+    <link itemprop="mainEntityOfPage" href="https://bili.github.io/hexoblog/hexoblog/2019/02/15/Vue2.x源码学习-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bilipan">
@@ -279,7 +279,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/hexoblog/2019/02/15/Vue2.x源码学习（1）视图和数据对象是如何关联的？/" itemprop="url">Vue2.x源码学习（1）视图和数据对象是如何关联的？</a></h1>
+                <a class="post-title-link" href="/hexoblog/2019/02/15/Vue2.x源码学习-1/" itemprop="url">Vue2.x源码学习（1）视图和数据对象是如何关联的？</a></h1>
         
 
         <div class="post-meta">
@@ -332,10 +332,10 @@
         
           <p>vue最为人所知的特色就是数据变化会自动触发视图的更新，这里面最核心的原理就是利用了Object.defineProperty()方法，实现对数据变化的监听，这也是为什么vue不支持那些老旧浏览器的原因之一。</p>
 <p>我们先看一下数据部分是如何在代码中流通的，知道了它的行走路径也就明白了它和视图的关系。本文我只关注data的部分。</p>
-<h1 id="data是如何实现响应的？"><a href="#data是如何实现响应的？" class="headerlink" title="data是如何实现响应的？"></a>data是如何实现响应的？</h1><p>首先要介绍的是initState()，initState()是处理有关state的方法，包括props、methods、data、computed和watch。而data的相关逻辑则是在initData()中实现。<br><img src="/hexoblog/2019/02/15/Vue2.x源码学习（1）视图和数据对象是如何关联的？/1.png" alt=""><br>在initData()中，会先遍历data中的属性，将data中的属性全部代理到vue实例上，实现通过vue实例直接访问data的属性的效果，例如data: {a: 1, b: 2}，就可以实现直接通过vm.a访问，而不必vm._data.a了。完成这步后，则会为data创建一个Observer，它的作用就是为data中的所有属性添加响应功能，核心方法就是Object.defineProperty()，使得属性变化可以被监测到，并触发视图更新，这也是最关键的一步，从此，数据和视图的命运就被紧密地关联在一起了。<br></p>
+<h1 id="data是如何实现响应的？"><a href="#data是如何实现响应的？" class="headerlink" title="data是如何实现响应的？"></a>data是如何实现响应的？</h1><p>首先要介绍的是initState()，initState()是处理有关state的方法，包括props、methods、data、computed和watch。而data的相关逻辑则是在initData()中实现。<br><img src="/hexoblog/2019/02/15/Vue2.x源码学习-1/1.png" alt=""><br>在initData()中，会先遍历data中的属性，将data中的属性全部代理到vue实例上，实现通过vue实例直接访问data的属性的效果，例如data: {a: 1, b: 2}，就可以实现直接通过vm.a访问，而不必vm._data.a了。完成这步后，则会为data创建一个Observer，它的作用就是为data中的所有属性添加响应功能，核心方法就是Object.defineProperty()，使得属性变化可以被监测到，并触发视图更新，这也是最关键的一步，从此，数据和视图的命运就被紧密地关联在一起了。<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/hexoblog/2019/02/15/Vue2.x源码学习（1）视图和数据对象是如何关联的？/#more" rel="contents">
+            <a class="btn" href="/hexoblog/2019/02/15/Vue2.x源码学习-1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
